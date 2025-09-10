@@ -1,7 +1,13 @@
 /**
  * A página está sempre em branco
  */
-export async function getServerSideProps() {
-	fetch('https://jsonplaceholder.typicode.com/posts')
-	return { props: { data: [] } }
+import React from 'react';
+
+export default function SearchPage() {
+  return (
+    <div>
+      <h1>Busca</h1>
+      <input placeholder="digite aqui..." />
+    </div>
+  );
 }
