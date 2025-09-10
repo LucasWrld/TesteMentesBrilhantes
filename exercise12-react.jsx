@@ -2,29 +2,29 @@
  * Ajuste o código para que o componente pai possa controlar o valor do campo e limpá-lo ao 
  * clicar no botão.
  */
-const { useState } = require('react')
+import { useState } from 'react';
 
-function SearchField() {
-	const [value, setValue] = useState('')
-
-	return (
-		<input
-			placeholder='Buscar...'
-			value={value}
-			onChange={(e) => setValue(e.target.value)}
-		/>
-	)
+function SearchField({ value, onChange }) {
+  return (
+    <input
+      placeholder="Buscar..."
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  );
 }
 
 export default function SearchPanel() {
-	const handleReset = () => {
+  const [search, setSearch] = useState('');
 
-	}
+  const handleReset = () => {
+    setSearch('');
+  };
 
-	return (
-		<div>
-			<SearchField />
-			<button onClick={handleReset}>Limpar</button>
-		</div>
-	)
+  return (
+    <div>
+      <SearchField value={search} onChange={setSearch} />
+      <button onClick={handleReset}>Limpar</button>
+    </div>
+  );
 }
