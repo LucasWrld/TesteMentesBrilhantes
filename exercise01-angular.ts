@@ -11,8 +11,8 @@ export class ItemComponent {
   @Input() list: string[] = [];
 
   add(item: string) {
-    // Em vez de só dar push, criamos uma nova lista
     this.list = [...this.list, item];
   }
 
 }
+
